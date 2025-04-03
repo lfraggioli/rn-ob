@@ -6,6 +6,7 @@ import { step2Schema, Step2Data } from "../schemas/step-2-schema";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { OnboardingStackParamList } from "../../../navigation/onboarding-navigator";
 import { useFormContext } from "../context/form-context";
+import { FormInput } from "../../../components/input";
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, "Paso2">;
 
@@ -31,19 +32,17 @@ const Paso2Screen = ({ navigation }: Props) => {
   const onSubmit = (data: Step2Data) => {
     updateFormData(data);
 
-    // Simulación de submit final
-    console.log("🎉 Todos los datos recolectados:", {
+    console.log("Datos recolectados:", {
       ...formData,
       ...data,
     });
-
-    // Aquí en el futuro iría: POST a /finalize-onboarding
+    navigation.navigate("Paso3");
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Email</Text>
-      <TextInput
+      <FormInput
         style={styles.input}
         placeholder="email@ejemplo.com"
         defaultValue={formData.email}

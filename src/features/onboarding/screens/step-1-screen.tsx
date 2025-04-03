@@ -6,6 +6,7 @@ import { step1Schema, Step1Data } from "../schemas/step-1-schema";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { OnboardingStackParamList } from "../../../navigation/onboarding-navigator";
 import { useFormContext } from "../context/form-context";
+import { FormInput } from "../../../components/input";
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, "Paso1">;
 
@@ -37,7 +38,7 @@ const Paso1Screen = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Nombre</Text>
-      <TextInput
+      <FormInput
         style={styles.input}
         placeholder="Juan Pérez"
         defaultValue={formData.nombre}

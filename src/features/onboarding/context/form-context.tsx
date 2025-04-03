@@ -3,9 +3,10 @@ import React, { createContext, useContext, useState } from "react";
 type OnboardingFormData = {
   nombre?: string;
   email?: string;
-  // Agregá más campos a medida que sumes pasos
+  telefono?: string;
+  genero?: "masculino" | "femenino" | "otro";
+  aceptaTerminos?: boolean;
 };
-
 type FormContextType = {
   formData: OnboardingFormData;
   updateFormData: (newData: Partial<OnboardingFormData>) => void;
